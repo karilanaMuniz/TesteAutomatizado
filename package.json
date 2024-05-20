@@ -1,0 +1,22 @@
+{
+  "name": "testeautomatizado",
+  "version": "1.0.0",
+  "description": "Serverest-teste",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karilanaMuniz/TesteAutomatizado.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karilanaMuniz/TesteAutomatizado/issues"
+  },
+  "homepage": "https://github.com/karilanaMuniz/TesteAutomatizado#readme",
+  "dependencies": {
+    "cypress": "^13.9.0"
+  }
+}
