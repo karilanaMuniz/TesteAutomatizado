@@ -33,13 +33,11 @@ describe('LOGIN ', () => {
     cy.get('[data-testid="email"]').clear().type('livia@teste.com')
     cy.get('[data-testid="senha"]').clear().type('teste1234')
     cy.get('[data-testid="entrar"]').click()
-    cy.get('h1').should('contain', 'Bem Vindo')
+    cy.get('h1').should('contain', 'Serverest Store')
     cy.get('.lead').should('contain', 'Este é seu sistema para administrar seu ecommerce.')
 
 
   });
-
-
 
 
   it('Usuario invalido', () => {
@@ -52,11 +50,26 @@ describe('LOGIN ', () => {
 
   });
   it('Deve validar mensagem de senha inválida', () => {
-    cy.get('[data-testid="email"]').clear().type('fabio@araujo.com')
+    cy.get('[data-testid="email"]').clear().type('lina@araujo.com')
     cy.get('[data-testid="senha"]').clear().type('testedsdsd@123')
     cy.get('[data-testid="entrar"]').click()
     cy.get('.alert').should('contain', 'Email e/ou senha inválidos')
   });
+
+  it('Deve fazer login com sucesso usando fixture', () => {
+
+    cy.fixture('login').then((dadosLogin) => {
+      //Utilize as variaveis do comandos Customizados que esta na pasta Support 
+      cy.loginUsuario(dadosLogin.email, dadosLogin.senha)
+    })
+    cy.get('h1').should('contain', 'Serverest Store')
+
+  });
+
+
+
+
+
 
   before(() => {
     //Fazer algo antes de todos os testes : exe: subir servidor

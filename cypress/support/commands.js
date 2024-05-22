@@ -23,3 +23,30 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+//Este cenario esta sendo utilizado para lista Compras 
+Cypress.Commands.add('loginUsuario', (email, senha) => {
+  cy.visit('login')
+  cy.get('[data-testid="email"]').clear().type(email)
+  cy.get('[data-testid="senha"]').clear().type(senha)
+  cy.get('[data-testid="entrar"]').click()
+  cy.wait(1000)
+})
+//Feito aqui este custome para ser utilizado no Cadastro NãoADMIN
+Cypress.Commands.add('cadastroUsuario', (nome, email, senha) => {
+  cy.visit('cadastrarusuarios')
+  cy.get('[data-testid="nome"]').clear().type(nome)
+  cy.get('[data-testid="email"]').clear().type(email)
+  cy.get('[data-testid="password"]').clear().type(senha)
+  cy.get('[data-testid="cadastrar"]').click()
+})
+//Feito aqui este custome para ser utilizado no Cadastro ADMIN 
+Cypress.Commands.add('cadastroUsuario', (nome, email, senha) => {
+  cy.visit('cadastrarusuarios')
+  cy.get('[data-testid="nome"]').clear().type(nome)
+  cy.get('[data-testid="email"]').clear().type(email)
+  cy.get('[data-testid="password"]').clear().type(senha)
+  cy.get('[data-testid="checkbox"]').check()
+  cy.get('[data-testid="cadastrar"]').click()
+})

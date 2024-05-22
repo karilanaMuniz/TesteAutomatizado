@@ -4,7 +4,12 @@
   "description": "Serverest-teste",
   "main": "cypress.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "test": "echo \"Error: no test specified\" && exit 1",
+   "navegador": " npx cypress run --browser chrome",
+   "reports": "npx cypress run --record --key 1e3df92c-e3e2-41ed-830e-a2345b0a29aa"
+
+
+
   },
   "repository": {
     "type": "git",
@@ -17,6 +22,7 @@
   },
   "homepage": "https://github.com/karilanaMuniz/TesteAutomatizado#readme",
   "dependencies": {
+    "@faker-js/faker": "^8.4.1",
     "cypress": "^13.9.0"
   }
 }
