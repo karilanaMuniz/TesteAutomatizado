@@ -37,17 +37,17 @@ describe('Funcionalidade cadastro', () => {
 
 
 	//Cenario preenchido como administrador 
-	/*
-		it('Cadastro de novos usuarios', () => {
-			cy.get('[data-testid="nome"]').clear().type('livia')
-			cy.get('[data-testid="email"]').clear().type('livia@teste.com')
-			cy.get('[data-testid="password"]').clear().type('teste1234')
-			cy.get('[data-testid="checkbox"]').check()
-			cy.get('[data-testid="cadastrar"]').click()
-			cy.get('.alert').should('contain', ' Cadastro realizado com sucesso')
-	
-		}); 
-	*/
+
+	it('Cadastro de novos usuarios', () => {
+		cy.get('[data-testid="nome"]').clear().type('livia')
+		cy.get('[data-testid="email"]').clear().type('livia@teste.com')
+		cy.get('[data-testid="password"]').clear().type('teste1234')
+		cy.get('[data-testid="checkbox"]').check()
+		cy.get('[data-testid="cadastrar"]').click()
+		cy.get('.alert').should('contain', ' Cadastro realizado com sucesso')
+
+	});
+
 
 	// Cenario de Usuario sem ser administrador
 

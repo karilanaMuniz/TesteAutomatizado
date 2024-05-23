@@ -50,3 +50,54 @@ Cypress.Commands.add('cadastroUsuario', (nome, email, senha) => {
   cy.get('[data-testid="checkbox"]').check()
   cy.get('[data-testid="cadastrar"]').click()
 })
+
+//parte da segunda forma para o token
+/* 
+Cypress.Commands.add('token', (email, senha) => {
+  cy.request({
+    method: 'POST',
+    url: 'http://localhost:3000/login',
+    body: {
+      "email": email,
+      "password": senha
+    }
+  }).then((response) => {
+    expect(response.status).to.equal(200) //usado na segunda forma
+    expect(response.body.message).to.equal("Login realizado com sucesso")
+  })
+
+}) */
+
+Cypress.Commands.add('token', (email, senha) => {
+  cy.request({
+    method: 'POST',
+    url: 'http://localhost:3000/login',
+    body:
+    {
+      "email": email,
+      "password": senha
+    }
+  }).then((response) => {
+    expect(response.status).equal(200)
+    return response.body.authorization
+  })
+})
+
+
+Cypress.Commands.add('cadastrarProduto', (tkn) => {
+  var produto = `Produto teste ${Date.now()}`
+  cy.request({
+    method: 'POST',
+    url: 'http://localhost:3000/produtos',
+    body: {
+      "nome": produto,
+      "preco": 1001,
+      "descricao": "Comandos customizados...",
+      "quantidade": 1001
+    },
+    headers: {
+      authorization: tkn
+    }
+  })
+
+})
