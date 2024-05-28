@@ -27,4 +27,4 @@ jobs:
     - name: Executar dependencias do node 
       run: npm install -f
     - name: Executar os testes
-      run: npm run report
+      run: npm run reports
