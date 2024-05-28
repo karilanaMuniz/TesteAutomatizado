@@ -23,8 +23,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: Executar servidor 
-      run: npm run start  
+      run: nohup npm run start &
     - name: Executar dependencias do node 
       run: npm install -f
     - name: Executar os testes
-      run: npm run cypress:report
+      run: npm run report
