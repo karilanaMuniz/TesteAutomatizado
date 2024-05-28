@@ -4,12 +4,11 @@
   "description": "Serverest-teste",
   "main": "cypress.config.js",
   "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-   "navegador": " npx cypress run --browser chrome",
-   "reports": "npx cypress run --record --key 1e3df92c-e3e2-41ed-830e-a2345b0a29aa"
-
-
-
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"npx serverest -y",
+    "navegador": " npx cypress run --browser chrome",
+    "reports": "npx cypress run --record --key 1e3df92c-e3e2-41ed-830e-a2345b0a29aa",
+    "allure:report": "npx allure serve allure-results"
   },
   "repository": {
     "type": "git",
@@ -24,5 +23,9 @@
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
     "cypress": "^13.9.0"
+  },
+  "devDependencies": {
+    "allure-commandline": "^2.29.0",
+    "allure-cypress": "^2.15.1"
   }
 }
