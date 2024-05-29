@@ -11,6 +11,8 @@ module.exports = defineConfig({
     },
     video: true,
     baseUrl: 'https://front.serverest.dev/',
+    chromeWebSecurity: false,
+    projectId: "xhyuhk",
 
   },
 });
